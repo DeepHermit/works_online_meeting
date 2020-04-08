@@ -1,7 +1,11 @@
 package com.deephermit.online_meeting.model;
 
+import lombok.Data;
+import org.apache.ibatis.annotations.Mapper;
+
 import javax.persistence.*;
 
+@Data
 @Table(name = "`user_info`")
 public class UserInfo {
     /**
@@ -9,10 +13,10 @@ public class UserInfo {
      */
     @Column(name = "`user_id`")
     @GeneratedValue(generator = "JDBC")
-    private String userId;
+    private String user_id;
 
     @Column(name = "`user_name`")
-    private String userName;
+    private String user_name;
 
     /**
      * 最长32位邮箱地址
@@ -21,13 +25,13 @@ public class UserInfo {
     private String email;
 
     @Column(name = "`user_password`")
-    private String userPassword;
+    private String user_password;
 
-    public UserInfo(String userId, String userName, String email, String userPassword) {
-        this.userId = userId;
-        this.userName = userName;
+    public UserInfo(String user_id, String user_name, String email, String user_password) {
+        this.user_id = user_id;
+        this.user_name = user_name;
         this.email = email;
-        this.userPassword = userPassword;
+        this.user_password = user_password;
     }
 
     public UserInfo() {
@@ -39,31 +43,31 @@ public class UserInfo {
      *
      * @return user_id - 百万用户
      */
-    public String getUserId() {
-        return userId;
+    public String getUser_id() {
+        return user_id;
     }
 
     /**
      * 设置百万用户
      *
-     * @param userId 百万用户
+     * @param user_id 百万用户
      */
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setUser_id(String user_id) {
+        this.user_id = user_id == null ? null : user_id.trim();
     }
 
     /**
      * @return user_name
      */
-    public String getUserName() {
-        return userName;
+    public String getUser_name() {
+        return user_name;
     }
 
     /**
-     * @param userName
+     * @param user_name
      */
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setUser_name(String user_name) {
+        this.user_name = user_name == null ? null : user_name.trim();
     }
 
     /**
@@ -87,14 +91,14 @@ public class UserInfo {
     /**
      * @return user_password
      */
-    public String getUserPassword() {
-        return userPassword;
+    public String getUser_password() {
+        return user_password;
     }
 
     /**
-     * @param userPassword
+     * @param user_password
      */
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword == null ? null : userPassword.trim();
+    public void setUser_password(String user_password) {
+        this.user_password = user_password == null ? null : user_password.trim();
     }
 }

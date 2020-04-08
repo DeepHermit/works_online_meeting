@@ -1,24 +1,26 @@
 package com.deephermit.online_meeting.model;
 
-import java.util.Date;
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Table(name = "`user_status`")
 public class UserStatus {
     @Column(name = "`user_id`")
     @GeneratedValue(generator = "JDBC")
-    private String userId;
+    private String user_id;
 
     @Column(name = "`login_code`")
-    private String loginCode;
+    private String login_code;
 
     @Column(name = "`create_date`")
-    private Date createDate;
+    private String create_date;
 
-    public UserStatus(String userId, String loginCode, Date createDate) {
-        this.userId = userId;
-        this.loginCode = loginCode;
-        this.createDate = createDate;
+    public UserStatus(String user_id, String login_code, String create_date) {
+        this.user_id = user_id;
+        this.login_code = login_code;
+        this.create_date = create_date;
     }
 
     public UserStatus() {
@@ -28,42 +30,42 @@ public class UserStatus {
     /**
      * @return user_id
      */
-    public String getUserId() {
-        return userId;
+    public String getUser_id() {
+        return user_id;
     }
 
     /**
-     * @param userId
+     * @param user_id
      */
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setUser_id(String user_id) {
+        this.user_id = user_id == null ? null : user_id.trim();
     }
 
     /**
      * @return login_code
      */
-    public String getLoginCode() {
-        return loginCode;
+    public String getLogin_code() {
+        return login_code;
     }
 
     /**
-     * @param loginCode
+     * @param login_code
      */
-    public void setLoginCode(String loginCode) {
-        this.loginCode = loginCode == null ? null : loginCode.trim();
+    public void setLogin_code(String login_code) {
+        this.login_code = login_code == null ? null : login_code.trim();
     }
 
     /**
      * @return create_date
      */
-    public Date getCreateDate() {
-        return createDate;
+    public String getCreate_date() {
+        return create_date;
     }
 
     /**
-     * @param createDate
+     * @param create_date
      */
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreate_date(String create_date) {
+        this.create_date = create_date == null ? null : create_date.trim();
     }
 }

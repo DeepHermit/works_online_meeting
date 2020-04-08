@@ -7,7 +7,8 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 @Mapper
-public interface UserStatusMapper extends CommonMapper<UserStatus> {
+public interface UserStatusMapper_now extends CommonMapper<UserStatus> {
+
     @Select("select * from user_status where user_id=#{user_id}")
     List<UserStatus> selectByUserId(@Param("user_id") String user_id);
     @Select("select * from user_status where login_code=#{login_code}")

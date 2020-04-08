@@ -3,10 +3,13 @@ package com.deephermit.online_meeting;
 import com.alibaba.druid.support.http.StatViewServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+@EnableCaching
 public class OnlineMeetingApplication {
 
     public static void main(String[] args) {
