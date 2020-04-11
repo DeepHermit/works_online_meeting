@@ -12,6 +12,4 @@ public interface UserStatusMapper extends CommonMapper<UserStatus> {
     List<UserStatus> selectByUserId(@Param("user_id") String user_id);
     @Select("select * from user_status where login_code=#{login_code}")
     List<UserStatus> selectByLoginCode(@Param("login_code") String login_code);
-    @Update("update user_status set login_code=#{new_login_code} where user_id=#{user_id}")
-    Boolean updateByUserId(@Param("new_login_code") String new_login_code, @Param("user_id") String user_id);
 }

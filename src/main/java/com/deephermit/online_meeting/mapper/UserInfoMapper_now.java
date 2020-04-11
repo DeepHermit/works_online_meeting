@@ -15,3 +15,5 @@ public interface UserInfoMapper_now extends CommonMapper<UserInfo> {
     @Select("select * from user_info where user_name=#{name}")
     List<UserInfo> selectByName(@Param("name") String name);
 }
+//    @Select("select from device_info where suid=#{suid}")
+//    List<DeviceInfo> selectBySuid(@Param("suid") String suid);

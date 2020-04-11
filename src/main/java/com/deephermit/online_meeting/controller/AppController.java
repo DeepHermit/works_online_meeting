@@ -1,9 +1,8 @@
 package com.deephermit.online_meeting.controller;
 
-import com.deephermit.online_meeting.mapper.UserInfoMapper;
-import com.deephermit.online_meeting.mapper.UserStatusMapper;
 import com.deephermit.online_meeting.model.UserInfo;
 import com.deephermit.online_meeting.service.UserService;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @EnableSwagger2
@@ -47,9 +47,54 @@ public class AppController {
         return map;
     }
     @RequestMapping(value = "/loginIsValid")
-    public Map<String,Object> loginIsValid(){
+    public Map<String,Object> loginIsValid(@RequestParam("user_id") String user_id,@RequestParam("login_code") String login_code){
         Map<String,Object> map=new HashMap<>();
-
+        if(userService.isLoginValid(user_id,login_code)){
+            map.put("valid",true);
+            map.put("msg","登录有效!");
+            map.put("result",true);
+        }else {
+            map.put("valid",false);
+            map.put("msg","登录无效！");
+            map.put("result",false);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/getSuid")
+    public Map<String,Object> getSuid(){
+        Map<String,Object> map=new HashMap<>();
+        String suid = userService.addAndGetSuid();
+        map.put("suid",suid);
+        map.put("msg","获取专用唯一性设备标识码成功!");
+        map.put("result",true);
+        return map;
+    }
+    @RequestMapping(value = "/isSuidValid")
+    public Map<String,Object> isSuidValid(@RequestParam("suid") String suid){
+        Map<String,Object> map = new HashMap<>();
+        if(userService.isSuidValid(suid)){
+            map.put("valid",true);
+            map.put("msg","专用唯一性设备标识码有效!");
+            map.put("result",true);
+        }else {
+            map.put("valid",false);
+            map.put("msg","专用唯一性设备标识码无效！");
+            map.put("result",false);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/getVerificationCode")
+    public Map<String,Object> getVerificationCode(@RequestParam("suid") String suid){
+        Map<String,Object> map = new HashMap<>();
+        if(userService.isSuidValid(suid)){
+            String verificationCode = userService.getVerificationCode(suid);
+            map.put("verificationCode",verificationCode);
+            map.put("msg","获取验证码成功！");
+            map.put("result",true);
+        }else{
+            map.put("msg","获取验证码失败，专用唯一性设备标识码无效！");
+            map.put("result",false);
+        }
         return map;
     }
 }
