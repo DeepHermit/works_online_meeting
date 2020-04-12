@@ -2,6 +2,7 @@ package com.deephermit.online_meeting.controller;
 
 import com.deephermit.online_meeting.model.UserInfo;
 import com.deephermit.online_meeting.service.UserService;
+import com.deephermit.online_meeting.service.VerificationCodeService;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,8 @@ import java.util.Map;
 public class AppController {
     @Autowired(required = false)
     private UserService userService;
+    @Autowired(required = false)
+    private VerificationCodeService verificationCodeService;
     //      map:
 //      1.user:账号，密码，历史会议，预约会议，
 //      2.msg:
@@ -28,18 +31,21 @@ public class AppController {
 //        3.登录成功
 //      3.result
     @RequestMapping(value = "/login")
-    public Map<String,Object> login(@RequestParam("account")String account, @RequestParam("password")String password){
+    public Map<String,Object> login(@RequestParam("account")String account, @RequestParam("password")String password,@RequestParam("suid") String suid,@RequestParam("verificationCode") String verificationCode){
         Map<String,Object> map=new HashMap<>();
+        if(!verificationCodeService.isVerificationCodeRight(suid,verificationCode)){
+            map.put("msg","验证码错误！");
+            map.put("result",false);
+            return map;
+        }
         UserInfo userInfo = userService.getAccount(account,password);
         if(userInfo==null) {
             map.put("msg", "账号或者密码错误，登录失败！");
             map.put("result", false);
         }
         else{
-//            更新登录码
-            String loginCode=userService.updateLoginCode(userInfo.getUser_id());
 //            获取所有个人信息
-            map.put("loginCode",loginCode);
+            verificationCodeService.updateDevUser(suid,userInfo.getUser_id());
             map.put("userInfo",userInfo);
             map.put("msg","登录成功！");
             map.put("reslut",true);
@@ -63,7 +69,7 @@ public class AppController {
     @RequestMapping(value = "/getSuid")
     public Map<String,Object> getSuid(){
         Map<String,Object> map=new HashMap<>();
-        String suid = userService.addAndGetSuid();
+        String suid = verificationCodeService.addAndGetSuid();
         map.put("suid",suid);
         map.put("msg","获取专用唯一性设备标识码成功!");
         map.put("result",true);
@@ -72,7 +78,7 @@ public class AppController {
     @RequestMapping(value = "/isSuidValid")
     public Map<String,Object> isSuidValid(@RequestParam("suid") String suid){
         Map<String,Object> map = new HashMap<>();
-        if(userService.isSuidValid(suid)){
+        if(verificationCodeService.isSuidValid(suid)){
             map.put("valid",true);
             map.put("msg","专用唯一性设备标识码有效!");
             map.put("result",true);
@@ -86,8 +92,8 @@ public class AppController {
     @RequestMapping(value = "/getVerificationCode")
     public Map<String,Object> getVerificationCode(@RequestParam("suid") String suid){
         Map<String,Object> map = new HashMap<>();
-        if(userService.isSuidValid(suid)){
-            String verificationCode = userService.getVerificationCode(suid);
+        if(verificationCodeService.isSuidValid(suid)){
+            String verificationCode = verificationCodeService.getVerificationCode(suid);
             map.put("verificationCode",verificationCode);
             map.put("msg","获取验证码成功！");
             map.put("result",true);

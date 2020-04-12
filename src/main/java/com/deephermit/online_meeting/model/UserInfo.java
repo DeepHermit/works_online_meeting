@@ -1,16 +1,13 @@
 package com.deephermit.online_meeting.model;
 
-import lombok.Data;
-import org.apache.ibatis.annotations.Mapper;
-
 import javax.persistence.*;
 
-@Data
 @Table(name = "`user_info`")
 public class UserInfo {
     /**
      * 百万用户
      */
+    @Id
     @Column(name = "`user_id`")
     @GeneratedValue(generator = "JDBC")
     private String user_id;
@@ -24,14 +21,14 @@ public class UserInfo {
     @Column(name = "`email`")
     private String email;
 
-    @Column(name = "`user_password`")
-    private String user_password;
+    @Column(name = "`phone`")
+    private String phone;
 
-    public UserInfo(String user_id, String user_name, String email, String user_password) {
+    public UserInfo(String user_id, String user_name, String email, String phone) {
         this.user_id = user_id;
         this.user_name = user_name;
         this.email = email;
-        this.user_password = user_password;
+        this.phone = phone;
     }
 
     public UserInfo() {
@@ -89,16 +86,16 @@ public class UserInfo {
     }
 
     /**
-     * @return user_password
+     * @return phone
      */
-    public String getUser_password() {
-        return user_password;
+    public String getPhone() {
+        return phone;
     }
 
     /**
-     * @param user_password
+     * @param phone
      */
-    public void setUser_password(String user_password) {
-        this.user_password = user_password == null ? null : user_password.trim();
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
     }
 }

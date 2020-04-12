@@ -4,11 +4,15 @@ import javax.persistence.*;
 
 @Table(name = "`device_info`")
 public class DeviceInfo {
+    @Column(name = "`user_id`")
+    private String user_id;
+
     /**
      * 专用唯一性标识码
      */
     @Id
     @Column(name = "`suid`")
+    @GeneratedValue(generator = "JDBC")
     private String suid;
 
     @Column(name = "`verification_code`")
@@ -20,7 +24,8 @@ public class DeviceInfo {
     @Column(name = "`code_create_date`")
     private String code_create_date;
 
-    public DeviceInfo(String suid, String verification_code, String suid_create_date, String code_create_date) {
+    public DeviceInfo(String user_id, String suid, String verification_code, String suid_create_date, String code_create_date) {
+        this.user_id = user_id;
         this.suid = suid;
         this.verification_code = verification_code;
         this.suid_create_date = suid_create_date;
@@ -29,6 +34,20 @@ public class DeviceInfo {
 
     public DeviceInfo() {
         super();
+    }
+
+    /**
+     * @return user_id
+     */
+    public String getUser_id() {
+        return user_id;
+    }
+
+    /**
+     * @param user_id
+     */
+    public void setUser_id(String user_id) {
+        this.user_id = user_id == null ? null : user_id.trim();
     }
 
     /**

@@ -39,7 +39,7 @@
 
         <table tableName="device_info" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="user_id" sqlStatement="JDBC"/>
+            <generatedKey column="suid" sqlStatement="JDBC"/>
         </table>
     </context>
 </generatorConfiguration>
