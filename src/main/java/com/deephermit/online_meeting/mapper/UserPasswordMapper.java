@@ -10,4 +10,6 @@ import java.util.List;
 public interface UserPasswordMapper extends CommonMapper<UserPassword> {
     @Select("select * from user_password where user_id=#{id}")
     List<UserPassword> selectById(@Param("id") String id);
+    @Select("select * from user_password")
+    List<UserPassword> selectAll();
 }

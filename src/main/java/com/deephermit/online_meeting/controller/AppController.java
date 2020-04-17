@@ -1,14 +1,12 @@
 package com.deephermit.online_meeting.controller;
 
 import com.deephermit.online_meeting.model.UserInfo;
+import com.deephermit.online_meeting.model.UserPassword;
 import com.deephermit.online_meeting.service.UserService;
 import com.deephermit.online_meeting.service.VerificationCodeService;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.HashMap;
@@ -48,7 +46,45 @@ public class AppController {
             verificationCodeService.updateDevUser(suid,userInfo.getUser_id());
             map.put("userInfo",userInfo);
             map.put("msg","登录成功！");
-            map.put("reslut",true);
+            map.put("result",true);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/register")
+    public Map<String,Object> register(@RequestParam("account") String account,@RequestParam("password") String password,@RequestParam("phone") String phone,@RequestParam("email") String email,@RequestParam("verificationCode") String verificationCode,@RequestParam("suid") String suid){
+        Map<String,Object> map=new HashMap<>();
+        if(!verificationCodeService.isVerificationCodeRight(suid,verificationCode)){  //判断验证码对否
+            map.put("msg","验证码错误！");
+            map.put("result",false);
+//            return map;
+        }else if(userService.getAccountByName(account).size()!=0){//判断账户名称是否存在
+            map.put("msg","注册失败，该用户名已经存在");
+            map.put("result",false);
+        }else{
+            UserInfo userInfo = new UserInfo(userService.getSizeOfUser(),account,email,phone);
+            UserPassword userPassword = new UserPassword(userInfo.getUser_id(),password);
+            userService.addUser(userInfo,userPassword);
+            map.put("msg","注册成功！");
+            map.put("result",true);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/findPwdByPwd")
+    public Map<String,Object> findPwdByPwd(@RequestParam("account") String account, @RequestParam("oldPassword") String oldPassword,@RequestParam("newPassword") String newPassword,@RequestParam("verificationCode") String verificationCode,@RequestParam("suid") String suid){
+        Map<String,Object> map = new HashMap<>();
+        if(!verificationCodeService.isVerificationCodeRight(suid,verificationCode)){
+            map.put("msg","验证码错误");
+            map.put("result",false);
+            return map;
+        }
+        UserInfo userInfo = userService.getAccount(account,oldPassword);
+        if(userInfo==null){
+            map.put("msg","该用户不存在或者密码错误");
+            map.put("result",false);
+        }else{
+            userService.updataPassword(userInfo.getUser_id(),newPassword);
+            map.put("msg","密码修改成功");
+            map.put("result",true);
         }
         return map;
     }
