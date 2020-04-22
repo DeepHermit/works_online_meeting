@@ -36,9 +36,9 @@ public class UserService {
         List<UserInfo> userInfos = userInfoMapper.selectByName(account);
         return userInfos;
     }
-    public String getSizeOfUser(){
+    public String getIDOfUser(){
         List<UserPassword> userPasswords = userPasswordMapper.selectAll();
-        return String.valueOf(userPasswords.size());
+        return String.valueOf(userPasswords.size()+100000);
     }
     public void addUser(UserInfo userInfo,UserPassword userPassword){
         userInfoMapper.insert(userInfo);

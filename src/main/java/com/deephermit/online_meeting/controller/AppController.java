@@ -1,7 +1,10 @@
 package com.deephermit.online_meeting.controller;
 
+import com.deephermit.online_meeting.model.MeetingPassword;
 import com.deephermit.online_meeting.model.UserInfo;
 import com.deephermit.online_meeting.model.UserPassword;
+import com.deephermit.online_meeting.service.AliyunTokenService;
+import com.deephermit.online_meeting.service.MeetingService;
 import com.deephermit.online_meeting.service.UserService;
 import com.deephermit.online_meeting.service.VerificationCodeService;
 import org.apache.ibatis.annotations.Mapper;
@@ -21,6 +24,10 @@ public class AppController {
     private UserService userService;
     @Autowired(required = false)
     private VerificationCodeService verificationCodeService;
+    @Autowired(required = false)
+    private MeetingService meetingService;
+    @Autowired(required = false)
+    private AliyunTokenService aliyunTokenService;
     //      map:
 //      1.user:账号，密码，历史会议，预约会议，
 //      2.msg:
@@ -61,7 +68,7 @@ public class AppController {
             map.put("msg","注册失败，该用户名已经存在");
             map.put("result",false);
         }else{
-            UserInfo userInfo = new UserInfo(userService.getSizeOfUser(),account,email,phone);
+            UserInfo userInfo = new UserInfo(userService.getIDOfUser(),account,email,phone);
             UserPassword userPassword = new UserPassword(userInfo.getUser_id(),password);
             userService.addUser(userInfo,userPassword);
             map.put("msg","注册成功！");
@@ -136,6 +143,43 @@ public class AppController {
         }else{
             map.put("msg","获取验证码失败，专用唯一性设备标识码无效！");
             map.put("result",false);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/createMeeting")
+    public Map<String,Object> createMeeting(@RequestParam("meetingName") String meetingName,@RequestParam("meetingPassword") String meetingPassword,@RequestParam("startTime") String startTime,@RequestParam("endTime") String endTime,@RequestParam("userId") String userId){
+        Map<String,Object> map = new HashMap<>();
+        meetingService.getMeetingId(meetingName,meetingPassword,startTime,endTime,userId);
+        map.put("msg","预约会议成功！");
+        map.put("result",true);
+        return map;
+    }
+    @RequestMapping(value = "/getMeetingTokens")
+    public Map<String,Object> getMeetingTokens(@RequestParam("meetingId") String meetingId,@RequestParam("userId") String userId){
+        Map<String,Object> map = new HashMap<>();
+        try {
+            map = aliyunTokenService.getToken(meetingId,userId);
+            map.put("msg","进入会议成功！");
+            map.put("result",true);
+            meetingService.addUser(meetingId,userId);
+        } catch (Exception e) {
+            map.put("msg","进入会议失败！");
+            map.put("result",false);
+            e.printStackTrace();
+        }
+        return map;
+    }
+    @RequestMapping(value = "/getMeetingPassword")
+    public Map<String,Object> getMeetingPassword(@RequestParam("meetingId") String meetingId){
+        Map<String,Object> map = new HashMap<>();
+        MeetingPassword meetingPassword = meetingService.getMeeting(meetingId);
+        if (meetingPassword==null){
+            map.put("msg","会议不存在！");
+            map.put("result",false);
+        }else{
+            map.put("meetingPassword",meetingPassword.getMeeting_password());
+            map.put("msg","获取会议成功！");
+            map.put("result",true);
         }
         return map;
     }
