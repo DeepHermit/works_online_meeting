@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @Table(name = "`user_meeting_rel`")
 public class UserMeetingRel {
-
     @Column(name = "`meeting_id`")
     @GeneratedValue(generator = "JDBC")
     private String meeting_id;
