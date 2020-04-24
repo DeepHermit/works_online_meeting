@@ -7,6 +7,7 @@ import com.deephermit.online_meeting.service.AliyunTokenService;
 import com.deephermit.online_meeting.service.MeetingService;
 import com.deephermit.online_meeting.service.UserService;
 import com.deephermit.online_meeting.service.VerificationCodeService;
+import com.deephermit.online_meeting.util.DateTimeUtil;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -186,7 +187,7 @@ public class AppController {
     @RequestMapping(value = "/quickMeeting")
     public Map<String,Object> quickMeeting(@RequestParam("meetingName") String meetingName,@RequestParam("meetingPassword") String meetingPassword,@RequestParam("startTime") String startTime,@RequestParam("endTime") String endTime,@RequestParam("userId") String userId){
         Map<String,Object> map = new HashMap<>();
-        String meetingId = meetingService.getMeetingId(meetingName,meetingPassword,startTime,endTime,userId);
+        String meetingId = meetingService.getMeetingId(meetingName,meetingPassword, DateTimeUtil.getyMdHmDate(),endTime,userId);
         try {
             map = aliyunTokenService.getToken(meetingId,userId);
             map.put("msg","预约会议成功！");

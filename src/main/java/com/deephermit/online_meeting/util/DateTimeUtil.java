@@ -8,6 +8,10 @@ public class DateTimeUtil {
             SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             return sdf.format(new Date());
         }
+        public static String getyMdHmDate(){
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            return sdf.format(new Date());
+        }
         public static String getDate(java.sql.Date date){
             SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             return date.toString();
