@@ -67,8 +67,9 @@ public class AliyunTokenService {
         token = createToken(appID, appKey, channelID, userID, nonce, timestamp);
         map.put("nonce",nonce);
         map.put("token",token);
-        map.put("timestamp",timestamp);
+        map.put("timestamp",timestamp.toString());
         map.put("meetingId",channelID);
+        map.put("userID",userID);
         String username = String.format("%s?appid=%s&channel=%s&nonce=%s&timestamp=%d",
                 userID, appID, channelID, nonce, timestamp);
 
