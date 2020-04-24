@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b74199cd-51e5-484a-9d73-78c0f3b58d52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/AliyunTokenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/MeetingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/util/MyToken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/online_meeting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/online_meeting.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/model/UserMeetingRel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/model/UserMeetingRel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/AliyunTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/AliyunTokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/MeetingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/MeetingService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,14 +63,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/UserService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/mapper/MeetingInfoMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#isLoginValid#0;class#UserService#0" />
-              </folding>
+            <state relative-caret-position="57">
+              <caret line="3" column="55" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/mapper/MeetingPasswordMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -82,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/VerificationCodeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-228">
-              <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+            <state relative-caret-position="437">
+              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,20 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/util/MyToken.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/AliyunTokenService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-247">
-              <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+            <state relative-caret-position="274">
+              <caret line="70" column="39" lean-forward="true" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,11 +107,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/MeetingService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
+            <state relative-caret-position="680">
+              <caret line="53" column="68" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -136,8 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/model/UserMeetingRel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+            <state relative-caret-position="103">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -154,26 +155,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/AppController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="163" column="53" selection-start-line="163" selection-start-column="53" selection-end-line="163" selection-end-column="53" />
+            <state relative-caret-position="122">
+              <caret line="185" column="42" selection-start-line="185" selection-start-column="30" selection-end-line="185" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#login#0;class#AppController#0" />
+                <element signature="method#register#0;class#AppController#0" />
+                <element signature="method#findPwdByPwd#0;class#AppController#0" />
                 <element signature="method#loginIsValid#0;class#AppController#0" />
                 <element signature="method#getSuid#0;class#AppController#0" />
                 <element signature="method#isSuidValid#0;class#AppController#0" />
+                <element signature="method#getVerificationCode#0;class#AppController#0" />
+                <element signature="method#createMeeting#0;class#AppController#0" />
+                <element signature="method#getMeetingTokens#0;class#AppController#0" />
+                <element signature="method#getMeetingPassword#0;class#AppController#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
-              <caret line="120" column="21" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -221,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/model/MeetingInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/model/MeetingPassword.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/model/UserMeetingRel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/mapper/MeetingInfoMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/mapper/MeetingPasswordMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/mapper/UserMeetingRelMapper.java" />
@@ -229,9 +227,10 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/util/aliyunToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/util/MyToken.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/AliyunTokenService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/model/UserMeetingRel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/MeetingService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/AppController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/AliyunTokenService.java" />
       </list>
     </option>
   </component>
@@ -328,15 +327,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="online_meeting" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="online_meeting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="online_meeting" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="online_meeting" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -347,22 +337,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="online_meeting" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="online_meeting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="online_meeting" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="online_meeting" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="online_meeting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="online_meeting" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -379,7 +353,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587560481575" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587560829745" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -408,7 +382,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MyToken">
+  <component name="RunManager" selected="Spring Boot.OnlineMeetingApplication">
     <configuration name="MyToken" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.deephermit.online_meeting.util.MyToken" />
       <module name="online_meeting" />
@@ -480,7 +454,8 @@
       <workItem from="1587385896041" duration="2488000" />
       <workItem from="1587431170419" duration="5386000" />
       <workItem from="1587470631314" duration="904000" />
-      <workItem from="1587557268425" duration="3194000" />
+      <workItem from="1587557268425" duration="3565000" />
+      <workItem from="1587692967123" duration="8345000" />
     </task>
     <task id="LOCAL-00001" summary="create project include spring boot DevTools,lombok,spring web,spring web services,JDBC API,mysql driver,mybatis framework">
       <created>1585831896843</created>
@@ -517,11 +492,25 @@
       <option name="project" value="LOCAL" />
       <updated>1587118662399</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="achieve Aliyun Token">
+      <created>1587560673415</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587560673415</updated>
+    </task>
+    <task id="LOCAL-00007" summary="achieve Aliyun Token2">
+      <created>1587560807951</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587560807951</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85941000" />
+    <option name="totallyTimeSpent" value="94657000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -536,7 +525,7 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24396783" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24731903" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -546,8 +535,8 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32658958" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2846821" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2586705" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2846821" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5303468" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32658958" />
@@ -556,7 +545,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32947975" />
       <window_info anchor="bottom" id="Database Changes" order="11" weight="0.32947975" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32658958" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.115606934" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32658958" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -630,7 +619,9 @@
     <MESSAGE value="achieve suid and verificationCode" />
     <MESSAGE value="achieve perfect login" />
     <MESSAGE value="achieve register and find password" />
-    <option name="LAST_COMMIT_MESSAGE" value="achieve register and find password" />
+    <MESSAGE value="achieve Aliyun Token" />
+    <MESSAGE value="achieve Aliyun Token2" />
+    <option name="LAST_COMMIT_MESSAGE" value="achieve Aliyun Token2" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/Swagger2Config.java">
@@ -654,13 +645,6 @@
           <folding>
             <element signature="e#519#520#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -814,23 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/mapper/MeetingInfoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="11" column="73" selection-start-line="10" selection-start-column="3" selection-end-line="11" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/mapper/MeetingPasswordMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/mapper/UserMeetingRelMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -872,19 +839,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/AliyunTokenService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
-          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
+        <state relative-caret-position="551">
           <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -893,30 +850,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/mapper/MeetingInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="55" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/VerificationCodeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/HelloController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/MeetingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
+        <state relative-caret-position="437">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -930,22 +874,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/mapper/MeetingPasswordMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/HelloController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/model/UserMeetingRel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="103">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/MeetingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="53" column="68" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="163" column="53" selection-start-line="163" selection-start-column="53" selection-end-line="163" selection-end-column="53" />
+        <state relative-caret-position="122">
+          <caret line="185" column="42" selection-start-line="185" selection-start-column="30" selection-end-line="185" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#login#0;class#AppController#0" />
+            <element signature="method#register#0;class#AppController#0" />
+            <element signature="method#findPwdByPwd#0;class#AppController#0" />
             <element signature="method#loginIsValid#0;class#AppController#0" />
             <element signature="method#getSuid#0;class#AppController#0" />
             <element signature="method#isSuidValid#0;class#AppController#0" />
+            <element signature="method#getVerificationCode#0;class#AppController#0" />
+            <element signature="method#createMeeting#0;class#AppController#0" />
+            <element signature="method#getMeetingTokens#0;class#AppController#0" />
+            <element signature="method#getMeetingPassword#0;class#AppController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/AliyunTokenService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="70" column="39" lean-forward="true" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -183,4 +183,19 @@ public class AppController {
         }
         return map;
     }
+    @RequestMapping(value = "/quickMeeting")
+    public Map<String,Object> quickMeeting(@RequestParam("meetingName") String meetingName,@RequestParam("meetingPassword") String meetingPassword,@RequestParam("startTime") String startTime,@RequestParam("endTime") String endTime,@RequestParam("userId") String userId){
+        Map<String,Object> map = new HashMap<>();
+        String meetingId = meetingService.getMeetingId(meetingName,meetingPassword,startTime,endTime,userId);
+        try {
+            map = aliyunTokenService.getToken(meetingId,userId);
+            map.put("msg","预约会议成功！");
+            map.put("result",true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("msg","预约会议失败！");
+            map.put("result",false);
+        }
+        return map;
+    }
 }

@@ -51,7 +51,7 @@ public class MeetingService {
             return false;
         }else{
             for(int i=0;i<userMeetingRels.size();i++){
-                if(userId==userMeetingRels.get(i).getUser_id()){
+                if(userMeetingRels.get(i).getUser_id().equals(userId)){
                     return false;
                 }
             }

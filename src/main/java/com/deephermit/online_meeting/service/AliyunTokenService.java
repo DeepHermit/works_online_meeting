@@ -68,6 +68,7 @@ public class AliyunTokenService {
         map.put("nonce",nonce);
         map.put("token",token);
         map.put("timestamp",timestamp);
+        map.put("meetingId",channelID);
         String username = String.format("%s?appid=%s&channel=%s&nonce=%s&timestamp=%d",
                 userID, appID, channelID, nonce, timestamp);
 
