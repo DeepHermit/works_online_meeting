@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b74199cd-51e5-484a-9d73-78c0f3b58d52" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/AliyunTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/service/AliyunTokenService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -356,7 +355,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587730995950" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587731241309" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -458,7 +457,7 @@
       <workItem from="1587431170419" duration="5386000" />
       <workItem from="1587470631314" duration="904000" />
       <workItem from="1587557268425" duration="3565000" />
-      <workItem from="1587692967123" duration="19428000" />
+      <workItem from="1587692967123" duration="19673000" />
     </task>
     <task id="LOCAL-00001" summary="create project include spring boot DevTools,lombok,spring web,spring web services,JDBC API,mysql driver,mybatis framework">
       <created>1585831896843</created>
@@ -523,11 +522,18 @@
       <option name="project" value="LOCAL" />
       <updated>1587720611291</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="change timestamp long into String">
+      <created>1587731073657</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587731073658</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105740000" />
+    <option name="totallyTimeSpent" value="105985000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -552,7 +558,7 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32658958" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2846821" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2846821" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5303468" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -568,7 +574,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.02010724" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.02010724" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Database" order="6" weight="0.23391421" />
@@ -640,7 +646,8 @@
     <MESSAGE value="achieve Aliyun Token2" />
     <MESSAGE value="achieve 3 plugins" />
     <MESSAGE value="achieve yun service" />
-    <option name="LAST_COMMIT_MESSAGE" value="achieve yun service" />
+    <MESSAGE value="change timestamp long into String" />
+    <option name="LAST_COMMIT_MESSAGE" value="change timestamp long into String" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/Swagger2Config.java">
