@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b74199cd-51e5-484a-9d73-78c0f3b58d52" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/util/DateTimeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/util/DateTimeUtil.java" afterDir="false" />
-    </list>
+    <list default="true" id="b74199cd-51e5-484a-9d73-78c0f3b58d52" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -138,8 +134,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/AppController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="189" column="111" selection-start-line="189" selection-start-column="111" selection-end-line="189" selection-end-column="111" />
+            <state relative-caret-position="391">
+              <caret line="195" column="32" lean-forward="true" selection-start-line="195" selection-start-column="32" selection-end-line="195" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#login#0;class#AppController#0" />
@@ -265,7 +261,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="500" />
-    <option name="width" value="1429" />
+    <option name="width" value="1430" />
     <option name="height" value="1060" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -471,7 +467,7 @@
       <workItem from="1587470631314" duration="904000" />
       <workItem from="1587557268425" duration="3565000" />
       <workItem from="1587692967123" duration="20715000" />
-      <workItem from="1587733906800" duration="209000" />
+      <workItem from="1587733906800" duration="756000" />
     </task>
     <task id="LOCAL-00001" summary="create project include spring boot DevTools,lombok,spring web,spring web services,JDBC API,mysql driver,mybatis framework">
       <created>1585831896843</created>
@@ -550,11 +546,18 @@
       <option name="project" value="LOCAL" />
       <updated>1587731296365</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add quickmeeting starttime">
+      <created>1587734179402</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587734179402</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107236000" />
+    <option name="totallyTimeSpent" value="107783000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -567,9 +570,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26340482" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26340482" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -588,8 +590,8 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32658958" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32947975" />
-      <window_info anchor="bottom" id="Database Changes" order="11" weight="0.32947975" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.115606934" />
+      <window_info anchor="bottom" id="Database Changes" order="11" weight="0.32803467" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="12" visible="true" weight="0.115606934" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32658958" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -668,7 +670,8 @@
     <MESSAGE value="achieve 3 plugins" />
     <MESSAGE value="achieve yun service" />
     <MESSAGE value="change timestamp long into String" />
-    <option name="LAST_COMMIT_MESSAGE" value="change timestamp long into String" />
+    <MESSAGE value="add quickmeeting starttime" />
+    <option name="LAST_COMMIT_MESSAGE" value="add quickmeeting starttime" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/Swagger2Config.java">
@@ -977,8 +980,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/deephermit/online_meeting/controller/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="189" column="111" selection-start-line="189" selection-start-column="111" selection-end-line="189" selection-end-column="111" />
+        <state relative-caret-position="391">
+          <caret line="195" column="32" lean-forward="true" selection-start-line="195" selection-start-column="32" selection-end-line="195" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#login#0;class#AppController#0" />
