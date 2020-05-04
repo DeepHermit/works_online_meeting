@@ -36,10 +36,10 @@ public class Swagger2Config {
     public ApiInfo apiInfo() {
         return  new ApiInfoBuilder()
                 .title("Online Meeting Restful API")
-                .description("这是app端接口API")
+                .description("这是用户端接口API")
                 .termsOfServiceUrl("127.0.0.1:8081/user")
                 .contact("deephermit")
-                .version("0.0.1")
+                .version("1.0.1")
                 .build();
 
     }

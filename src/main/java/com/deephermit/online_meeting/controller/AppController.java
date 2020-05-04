@@ -236,7 +236,6 @@ public class AppController {
         }
         return map;
     }
-//    getVoteAndLeaveMsg
     @RequestMapping(value = "/getVoteAndLeaveMsg")
     public Map<String,Object> getVoteAndLeaveMsg(@RequestParam("meeting_id") String meeting_id){
         Map<String,Object> map = new HashMap<>();
@@ -357,25 +356,18 @@ public class AppController {
         }
         return map;
     }
-//    @RequestMapping(value = "/getAllMeeting")
-//    public Map<String,Object> getAllMeeting(){
-//        Map<String,Object> map = new HashMap<>();
-//        map.put("msg","成功!");
-//        map.put("result",true);
-//        return map;
-//    }
     @RequestMapping(value = "/generatorData")
     public Map<String,Object> generatorData(@RequestParam("jsonData") String jsonData){
         Map<String,Object> map = new HashMap<>();
         //90个用户1个管理员
-    //        userService.generatorData();
+        userService.generatorData();
         //自定义用户1的3个会议，管理员的3个会议，管理员参加用户1的三个会议
         //90用户加入会议1
-    //        meetingService.generatorData();
+        meetingService.generatorData();
         //管理员拥有6个投票问题，会议1中90用户参与三个投票
-//            voteService.generatorData();
+        voteService.generatorData();
         //加入十条留言
-//        leaveMsgService.generatorData();
+        leaveMsgService.generatorData();
         return map;
     }
 }

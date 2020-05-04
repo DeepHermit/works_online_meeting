@@ -147,7 +147,7 @@
                 <!--</executions>-->
                 <!--<configuration>-->
                     <!--&lt;!&ndash; generator 工具配置文件的位置 &ndash;&gt;-->
-                    <!--<configurationFile>src/main/resources/generatorConfig.xml</configurationFile>-->
+                    <!--<configurationFile>src/main/resources/generatorConfig.xml.ini</configurationFile>-->
                     <!--&lt;!&ndash;注意这个位置要和自己的路径一样&ndash;&gt;-->
                     <!--<verbose>true</verbose>-->
                     <!--<overwrite>true</overwrite>-->

@@ -39,18 +39,18 @@ public class VoteService {
 
     public void generatorData(){
         //管理员拥有6个投票问题
-//        VoteInfo voteInfo6 = new VoteInfo("0","100000","你喜欢开发吗？","非常喜欢","喜欢","一般","不喜欢");
-//        VoteInfo voteInfo1 = new VoteInfo("1","100000","代码出现问题是改正还是重写？","改正","重写","不理会","视情况而定");
-//        VoteInfo voteInfo2 = new VoteInfo("2","100000","需求出现变化是马上改变思路还是继续原计划最后修正？","改变思路","原计划继续","不理会新需求","视情况而定");
-//        VoteInfo voteInfo3 = new VoteInfo("3","100000","遇到技术难题怎么办？","找外包","面向百度开发","请教大佬","跳过不做");
-//        VoteInfo voteInfo4 = new VoteInfo("4","100000","接手他人代码第一反应是什么？","想自己重写不想改","立马开始研究","请教代码的原创者","视情况而定");
-//        VoteInfo voteInfo5 = new VoteInfo("5","100000","无法按时完成任务怎么办？","说明情况，下次努力","熬夜赶工","借鉴他人代码","找人一起写");
-//        voteInfoMapper.insert(voteInfo6);
-//        voteInfoMapper.insert(voteInfo1);
-//        voteInfoMapper.insert(voteInfo2);
-//        voteInfoMapper.insert(voteInfo3);
-//        voteInfoMapper.insert(voteInfo4);
-//        voteInfoMapper.insert(voteInfo5);
+        VoteInfo voteInfo6 = new VoteInfo("0","100000","你喜欢开发吗？","非常喜欢","喜欢","一般","不喜欢");
+        VoteInfo voteInfo1 = new VoteInfo("1","100000","代码出现问题是改正还是重写？","改正","重写","不理会","视情况而定");
+        VoteInfo voteInfo2 = new VoteInfo("2","100000","需求出现变化是马上改变思路还是继续原计划最后修正？","改变思路","原计划继续","不理会新需求","视情况而定");
+        VoteInfo voteInfo3 = new VoteInfo("3","100000","遇到技术难题怎么办？","找外包","面向百度开发","请教大佬","跳过不做");
+        VoteInfo voteInfo4 = new VoteInfo("4","100000","接手他人代码第一反应是什么？","想自己重写不想改","立马开始研究","请教代码的原创者","视情况而定");
+        VoteInfo voteInfo5 = new VoteInfo("5","100000","无法按时完成任务怎么办？","说明情况，下次努力","熬夜赶工","借鉴他人代码","找人一起写");
+        voteInfoMapper.insert(voteInfo6);
+        voteInfoMapper.insert(voteInfo1);
+        voteInfoMapper.insert(voteInfo2);
+        voteInfoMapper.insert(voteInfo3);
+        voteInfoMapper.insert(voteInfo4);
+        voteInfoMapper.insert(voteInfo5);
         //管理员投票
         for(int i=0;i<3;i++){
             UserVoteMeeting userVoteMeeting = new UserVoteMeeting(String.valueOf(i),"100000","100000",String.valueOf(i),"A");
@@ -109,9 +109,9 @@ public class VoteService {
             userVoteMeetingMapper.insert(userVoteMeeting);
         }
         //将三个投票给会议1
-//        voteMeetingRelMapper.insert(new VoteMeetingRel("0","0","100000"));
-//        voteMeetingRelMapper.insert(new VoteMeetingRel("1","1","100000"));
-//        voteMeetingRelMapper.insert(new VoteMeetingRel("2","2","100000"));
+        voteMeetingRelMapper.insert(new VoteMeetingRel("0","0","100000"));
+        voteMeetingRelMapper.insert(new VoteMeetingRel("1","1","100000"));
+        voteMeetingRelMapper.insert(new VoteMeetingRel("2","2","100000"));
     }
 
     public List<Map<String, List<VoteNumber>>> getVoteData(String meeting_id) {
