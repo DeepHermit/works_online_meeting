@@ -22,3 +22,9 @@ public interface UserInfoMapper_now extends CommonMapper<UserInfo> {
 //    List<UserInfo> selectById(@Param("id") String id);
 //    @Select("select * from user_info where user_name=#{name}")
 //    List<UserInfo> selectByName(@Param("name") String name);
+
+//    @Select("select * from leave_msg where meeting_id=#{meeting_id}")
+//    List<LeaveMsg> selectAllByMeetingId(@Param("meeting_id") String meeting_id);
+
+//    @Select("select * from leave_msg where meeting_id=#{meeting_id}")
+//    List<LeaveMsg> selectAllByMeetingId(@Param("meeting_id") String meeting_id);

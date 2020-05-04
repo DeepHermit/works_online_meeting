@@ -10,4 +10,6 @@ import java.util.List;
 public interface UserMeetingRelMapper extends CommonMapper<UserMeetingRel> {
     @Select("select * from user_meeting_rel where meeting_id=#{meeting_id}")
     List<UserMeetingRel> selectByMeetingId(@Param("meeting_id") String meeting_id);
+    @Select("select * from user_meeting_rel where user_id=#{user_id}")
+    List<UserMeetingRel> selectByUserId(@Param("user_id") String user_id);
 }

@@ -44,13 +44,30 @@ public class UserService {
         userInfoMapper.insert(userInfo);
         userPasswordMapper.insert(userPassword);
     }
-    public Boolean isLoginValid(String user_id,String login_code){
-
-        return false;
-    }
-
     public void updataPassword(String user_id, String newPassword) {
         UserPassword userPassword = new UserPassword(user_id,newPassword);
         userPasswordMapper.updateByPrimaryKey(userPassword);
+    }
+
+    public Boolean userExist(String userId){
+        List<UserInfo> userInfos = userInfoMapper.selectById(userId);
+        if(userInfos.size()==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public void generatorData(){
+        //90个用户1个管理员
+        UserInfo rootAdmin = new UserInfo("100000","rootAdmin","343506776@qq.com","18215689962");
+        UserPassword rootUserPassword = new UserPassword("100000","rootAdmin");
+        userInfoMapper.insert(rootAdmin);
+        userPasswordMapper.insert(rootUserPassword);
+        for(int i=1;i<91;i++){
+            UserInfo userInfo = new UserInfo(String.valueOf(100000+i),"appuser"+String.valueOf(i),null,null);
+            UserPassword userPassword = new UserPassword(String.valueOf(100000+i),"appuser"+String.valueOf(i));
+            userInfoMapper.insert(userInfo);
+            userPasswordMapper.insert(userPassword);
+        }
     }
 }

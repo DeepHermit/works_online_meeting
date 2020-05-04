@@ -1,12 +1,7 @@
 package com.deephermit.online_meeting.controller;
 
-import com.deephermit.online_meeting.model.MeetingPassword;
-import com.deephermit.online_meeting.model.UserInfo;
-import com.deephermit.online_meeting.model.UserPassword;
-import com.deephermit.online_meeting.service.AliyunTokenService;
-import com.deephermit.online_meeting.service.MeetingService;
-import com.deephermit.online_meeting.service.UserService;
-import com.deephermit.online_meeting.service.VerificationCodeService;
+import com.deephermit.online_meeting.model.*;
+import com.deephermit.online_meeting.service.*;
 import com.deephermit.online_meeting.util.DateTimeUtil;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +24,10 @@ public class AppController {
     private MeetingService meetingService;
     @Autowired(required = false)
     private AliyunTokenService aliyunTokenService;
+    @Autowired(required = false)
+    private LeaveMsgService leaveMsgService;
+    @Autowired(required = false)
+    private VoteService voteService;
     //      map:
 //      1.user:账号，密码，历史会议，预约会议，
 //      2.msg:
@@ -97,9 +96,9 @@ public class AppController {
         return map;
     }
     @RequestMapping(value = "/loginIsValid")
-    public Map<String,Object> loginIsValid(@RequestParam("user_id") String user_id,@RequestParam("login_code") String login_code){
+    public Map<String,Object> loginIsValid(@RequestParam("user_id") String user_id,@RequestParam("suid") String suid){
         Map<String,Object> map=new HashMap<>();
-        if(userService.isLoginValid(user_id,login_code)){
+        if(verificationCodeService.isLoginValid(user_id,suid)){
             map.put("valid",true);
             map.put("msg","登录有效!");
             map.put("result",true);
@@ -155,6 +154,18 @@ public class AppController {
         map.put("result",true);
         return map;
     }
+    @RequestMapping(value = "/endMeeting")
+    public Map<String,Object> endMeeting(@RequestParam("meeting_id") String meeting_id){
+        Map<String,Object> map = new HashMap<>();
+        if(meetingService.endMeeting(meeting_id)){
+            map.put("msg","结束会议成功！");
+            map.put("result",true);
+        }else{
+            map.put("msg","结束会议失败！");
+            map.put("result",false);
+        }
+        return map;
+    }
     @RequestMapping(value = "/getMeetingTokens")
     public Map<String,Object> getMeetingTokens(@RequestParam("meetingId") String meetingId,@RequestParam("userId") String userId){
         Map<String,Object> map = new HashMap<>();
@@ -197,6 +208,174 @@ public class AppController {
             map.put("msg","预约会议失败！");
             map.put("result",false);
         }
+        return map;
+    }
+    @RequestMapping(value = "/getAllOrederMeeting")
+    public Map<String,Object> getAllOrederMeeting(@RequestParam("userId") String userId){
+        Map<String,Object> map = new HashMap<>();
+        if(userService.userExist(userId)){
+            map = meetingService.getAllOderMeetingAndRel(userId);
+            map.put("msg","查询预约会议成功");
+            map.put("result",true);
+        }else {
+            map.put("msg","该用户不存在");
+            map.put("result",false);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/getAllMeeting")
+    public Map<String,Object> getAllMeeting(@RequestParam("user_id") String user_id){
+        Map<String,Object> map = new HashMap<>();
+        if(meetingService.getAllMeetingAndRel(user_id)==null){
+            map.put("msg","该用户未参与任何一场会议");
+            map.put("result",false);
+        }else{
+            map = meetingService.getAllMeetingAndRel(user_id);
+            map.put("msg","查询成功！");
+            map.put("result",true);
+        }
+        return map;
+    }
+//    getVoteAndLeaveMsg
+    @RequestMapping(value = "/getVoteAndLeaveMsg")
+    public Map<String,Object> getVoteAndLeaveMsg(@RequestParam("meeting_id") String meeting_id){
+        Map<String,Object> map = new HashMap<>();
+        List<VoteInfo> voteInfos = voteService.getAllVoteInfoByMeetingId(meeting_id);
+        map.put("allVoteInfo",voteInfos);
+        List<LeaveMsg> leaveMsgs = leaveMsgService.getAllLeaveMsgByMeetingId(meeting_id);
+        map.put("allLeaveMsg",leaveMsgs);
+        map.put("msg","查询成功");
+        map.put("result",true);
+        return map;
+    }
+    @RequestMapping(value = "/senLeaveMsg")
+    public Map<String,Object> senLeaveMsg(@RequestParam("meeting_id") String meeting_id,@RequestParam("user_id") String user_id,@RequestParam("user_name") String user_name,@RequestParam("msg") String msg){
+        Map<String,Object> map = new HashMap<>();
+        leaveMsgService.sendMsg(meeting_id,user_id,user_name,msg);
+        map.put("msg","成功!");
+        map.put("result",true);
+        return map;
+    }
+    @RequestMapping(value = "/getVoteData")
+    public Map<String,Object> getVoteData(@RequestParam("meeting_id") String meeting_id){
+        Map<String,Object> map = new HashMap<>();
+        List<Map<String,List<VoteNumber>>> voteData = voteService.getVoteData(meeting_id);
+        if(voteData==null){
+            map.put("msg","获取数据失败!");
+            map.put("result",false);
+        }else {
+            map.put("voteData",voteData);
+            map.put("msg","获取数据成功!");
+            map.put("result",true);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/getVoteResults")
+    public Map<String,Object> getVoteResults(@RequestParam("meeting_id") String meeting_id,@RequestParam("user_id") String user_id){
+        Map<String,Object> map = new HashMap<>();
+        List<VoteResult> voteResults = voteService.getVoteResults(meeting_id,user_id);
+        map.put("voteResults",voteResults);
+        map.put("msg","获取投票结果成功!");
+        map.put("result",true);
+        return map;
+    }
+    @RequestMapping(value = "/sendVotes")
+    public Map<String,Object> sendVotes(@RequestParam("meeting_id") String meeting_id,@RequestParam("user_id") String user_id,@RequestParam("voteResults") String voteResults){
+        Map<String,Object> map = new HashMap<>();
+        System.out.print(voteResults);
+        if(voteService.senVotes(meeting_id,user_id,voteResults)){
+            map.put("msg","投票提交成功!");
+            map.put("result",true);
+        }else{
+            map.put("msg","投票提交失败!");
+            map.put("result",true);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/getMeetingWithAndWithout")
+    public Map<String,Object> getMeetingWithAndWithout(@RequestParam("meeting_id") String meeting_id,@RequestParam("user_id") String user_id){
+        Map<String,Object> map = new HashMap<>();
+        map = voteService.getMeetingWithAndWithout(meeting_id,user_id);
+        map.put("msg","成功!");
+        map.put("result",true);
+        return map;
+    }
+    @RequestMapping(value = "/meetingDeleteVote")
+    public Map<String,Object> meetingDeleteVote(@RequestParam("meeting_id") String meeting_id,@RequestParam("vote_id") String vote_id){
+        Map<String,Object> map = new HashMap<>();
+        if(voteService.meetingDeleteVote(meeting_id,vote_id)){
+            map.put("msg","删除成功!");
+            map.put("result",true);
+        }else{
+            map.put("msg","删除失败!");
+            map.put("result",false);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/meetingAddVote")
+    public Map<String,Object> meetingAddVote(@RequestParam("meeting_id") String meeting_id,@RequestParam("vote_id") String vote_id){
+        Map<String,Object> map = new HashMap<>();
+        if(voteService.meetingAddVote(meeting_id,vote_id)){
+            map.put("msg","添加成功!");
+            map.put("result",true);
+        }else{
+            map.put("msg","添加失败!");
+            map.put("result",false);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/getAllVotes")
+    public Map<String,Object> getAllVotes(@RequestParam("user_id") String user_id){
+        Map<String,Object> map = new HashMap<>();
+        List<VoteInfo> voteInfos = voteService.getAllVoteInfoByUserId(user_id);
+        map.put("voteInfos",voteInfos);
+        map.put("msg","成功!");
+        map.put("result",true);
+        return map;
+    }
+    @RequestMapping(value = "/addVote")
+    public Map<String,Object> addVote(@RequestParam("user_id") String user_id,@RequestParam("vote_question") String vote_question,@RequestParam("A") String A,@RequestParam("B") String B,@RequestParam("C") String C,@RequestParam("D") String D){
+        Map<String,Object> map = new HashMap<>();
+        if(voteService.userAddVote(user_id,vote_question,A,B,C,D)){
+            map.put("msg","添加投票成功!");
+            map.put("result",true);
+        }else {
+            map.put("msg","添加投票失败!");
+            map.put("result",false);
+        }
+        return map;
+    }
+    @RequestMapping(value = "/deleteVote")
+    public Map<String,Object> deleteVote(@RequestParam("user_id") String user_id,@RequestParam("vote_id") String vote_id){
+        Map<String,Object> map = new HashMap<>();
+        if(voteService.userDeleteVote(user_id,vote_id)){
+            map.put("msg","删除投票成功!");
+            map.put("result",true);
+        }else {
+            map.put("msg","删除投票失败!");
+            map.put("result",false);
+        }
+        return map;
+    }
+//    @RequestMapping(value = "/getAllMeeting")
+//    public Map<String,Object> getAllMeeting(){
+//        Map<String,Object> map = new HashMap<>();
+//        map.put("msg","成功!");
+//        map.put("result",true);
+//        return map;
+//    }
+    @RequestMapping(value = "/generatorData")
+    public Map<String,Object> generatorData(@RequestParam("jsonData") String jsonData){
+        Map<String,Object> map = new HashMap<>();
+        //90个用户1个管理员
+    //        userService.generatorData();
+        //自定义用户1的3个会议，管理员的3个会议，管理员参加用户1的三个会议
+        //90用户加入会议1
+    //        meetingService.generatorData();
+        //管理员拥有6个投票问题，会议1中90用户参与三个投票
+//            voteService.generatorData();
+        //加入十条留言
+//        leaveMsgService.generatorData();
         return map;
     }
 }

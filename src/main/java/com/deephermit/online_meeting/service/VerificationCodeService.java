@@ -64,8 +64,25 @@ public class VerificationCodeService {
     }
 
     public Boolean updateDevUser(String suid, String user_id) {
+        List<DeviceInfo> deviceInfos = deviceInfoMapper.selectByUserId(user_id);
+        if(deviceInfos!=null&&deviceInfos.size()!=0){
+            for(int i=0;i<deviceInfos.size();i++){
+                deviceInfoMapper.delete(deviceInfos.get(i));
+            }
+        }
         DeviceInfo deviceInfo = new DeviceInfo(user_id,suid,null,null,null);
         deviceInfoMapper.updateByPrimaryKeySelective(deviceInfo);
         return true;
+    }
+    public Boolean isLoginValid(String user_id,String suid){
+        List<DeviceInfo> deviceInfos = deviceInfoMapper.selectByUserId(user_id);
+        if(deviceInfos==null||deviceInfos.size()==0){
+            return false;
+        }else{
+            if(deviceInfos.get(0).getSuid().equals(suid)){
+                return true;
+            }
+        }
+        return false;
     }
 }

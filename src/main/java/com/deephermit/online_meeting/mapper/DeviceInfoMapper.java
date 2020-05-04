@@ -10,4 +10,6 @@ import java.util.List;
 public interface DeviceInfoMapper extends CommonMapper<DeviceInfo> {
     @Select("select * from device_info where suid=#{suid}")
     List<DeviceInfo> selectBySuid(@Param("suid") String suid);
+    @Select("select * from device_info where user_id=#{user_id}")
+    List<DeviceInfo> selectByUserId(@Param("user_id") String user_id);
 }
