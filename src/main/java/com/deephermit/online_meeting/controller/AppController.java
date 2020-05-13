@@ -11,7 +11,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@CrossOrigin(origins="*",maxAge = 3600)
 @EnableSwagger2
 @RestController
 @RequestMapping("/user")
@@ -28,13 +28,7 @@ public class AppController {
     private LeaveMsgService leaveMsgService;
     @Autowired(required = false)
     private VoteService voteService;
-    //      map:
-//      1.user:账号，密码，历史会议，预约会议，
-//      2.msg:
-//        1.账号或者密码错误，登录失败   !
-//        2.已经在其他地方登录
-//        3.登录成功
-//      3.result
+
     @RequestMapping(value = "/login")
     public Map<String,Object> login(@RequestParam("account")String account, @RequestParam("password")String password,@RequestParam("suid") String suid,@RequestParam("verificationCode") String verificationCode){
         Map<String,Object> map=new HashMap<>();
