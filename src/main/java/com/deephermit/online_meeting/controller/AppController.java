@@ -151,8 +151,10 @@ public class AppController {
     @RequestMapping(value = "/endMeeting")
     public Map<String,Object> endMeeting(@RequestParam("meeting_id") String meeting_id){
         Map<String,Object> map = new HashMap<>();
-        if(meetingService.endMeeting(meeting_id)){
+        String endTime = meetingService.endMeeting(meeting_id);
+        if(endTime!=null){
             map.put("msg","结束会议成功！");
+            map.put("endTime",endTime);
             map.put("result",true);
         }else{
             map.put("msg","结束会议失败！");

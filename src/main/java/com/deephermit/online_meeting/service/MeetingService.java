@@ -118,6 +118,11 @@ public class MeetingService {
         meetingInfoMapper.insert(meetingInfoE);
         meetingInfoMapper.insert(meetingInfoF);
         meetingPasswordMapper.insert(new MeetingPassword("100000","100000"));
+        meetingPasswordMapper.insert(new MeetingPassword("100001",""));
+        meetingPasswordMapper.insert(new MeetingPassword("100002",""));
+        meetingPasswordMapper.insert(new MeetingPassword("100003",""));
+        meetingPasswordMapper.insert(new MeetingPassword("100004",""));
+        meetingPasswordMapper.insert(new MeetingPassword("100005",""));
         //用户1主持3个会议,管理员主持3个会议，加入3个会议
         userMeetingRelMapper.insert(new UserMeetingRel("100000","100000","1"));
         userMeetingRelMapper.insert(new UserMeetingRel("100001","100000","1"));
@@ -134,12 +139,13 @@ public class MeetingService {
         }
     }
 
-    public boolean endMeeting(String meeting_id) {
+    public String endMeeting(String meeting_id) {
         List<MeetingInfo> meetingInfos = meetingInfoMapper.selectById(meeting_id);
         if(meetingInfos.size()!=0&&(meetingInfos.get(0).getEnd_time()==null||meetingInfos.get(0).getEnd_time().trim().length()!=0)){
-            meetingInfoMapper.updateByPrimaryKeySelective(new MeetingInfo(meeting_id,null,DateTimeUtil.getyMdHmDate(),null));
-            return true;
+            String nowTime = DateTimeUtil.getyMdHmDate();
+            meetingInfoMapper.updateByPrimaryKeySelective(new MeetingInfo(meeting_id,null,nowTime,null));
+            return nowTime;
         }
-        return false;
+        return null;
     }
 }
