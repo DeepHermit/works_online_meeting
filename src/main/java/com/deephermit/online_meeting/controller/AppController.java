@@ -353,17 +353,24 @@ public class AppController {
         return map;
     }
     @RequestMapping(value = "/generatorData")
-    public Map<String,Object> generatorData(@RequestParam("jsonData") String jsonData){
+    public Map<String,Object> generatorData(@RequestParam("jsonData") String password){
         Map<String,Object> map = new HashMap<>();
-        //90个用户1个管理员
-        userService.generatorData();
-        //自定义用户1的3个会议，管理员的3个会议，管理员参加用户1的三个会议
-        //90用户加入会议1
-        meetingService.generatorData();
-        //管理员拥有6个投票问题，会议1中90用户参与三个投票
-        voteService.generatorData();
-        //加入十条留言
-        leaveMsgService.generatorData();
+        if(password.equals("xl18215689962")){
+            //90个用户1个管理员
+            userService.generatorData();
+            //自定义用户1的3个会议，管理员的3个会议，管理员参加用户1的三个会议
+            //90用户加入会议1
+            meetingService.generatorData();
+            //管理员拥有6个投票问题，会议1中90用户参与三个投票
+            voteService.generatorData();
+            //加入十条留言
+            leaveMsgService.generatorData();
+            map.put("msg","初始化数据成功");
+            map.put("result",true);
+        }else{
+            map.put("msg","无权初始化数据");
+            map.put("result",false);
+        }
         return map;
     }
 }
